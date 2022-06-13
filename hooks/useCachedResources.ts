@@ -7,14 +7,6 @@ export default function useCachedResources() {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
   // Load any resources or data that we need prior to rendering the app
-  // Colour scheme
-  // #000000
-  // #14213d
-  // #fca311
-  // #e5e5e5
-  // #ffffff
-
-  // See Ignote boiler plate for a basic spacing and typography scale
   useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
