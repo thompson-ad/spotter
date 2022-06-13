@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
+    fontFamily: 'overpass-regular',
     fontSize: 20,
     fontWeight: "bold",
   },

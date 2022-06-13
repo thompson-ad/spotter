@@ -7,6 +7,14 @@ export default function useCachedResources() {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
   // Load any resources or data that we need prior to rendering the app
+  // Colour scheme
+  // #000000
+  // #14213d
+  // #fca311
+  // #e5e5e5
+  // #ffffff
+
+  // See Ignote boiler plate for a basic spacing and typography scale
   useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
@@ -15,7 +23,10 @@ export default function useCachedResources() {
         // Load fonts
         await Font.loadAsync({
           ...FontAwesome.font,
-          "space-mono": require("../assets/fonts/SpaceMono-Regular.ttf"),
+          "overpass-regular": require("../assets/fonts/Overpass-Regular.ttf"),
+          "overpass-bold": require("../assets/fonts/Overpass-Bold.ttf"),
+          "overpass-extra-bold": require("../assets/fonts/Overpass-ExtraBold.ttf"),
+          "rajdhani-bold": require("../assets/fonts/Rajdhani-Bold.ttf"),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service
