@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/aaron.thompson/.nvm/versions/node/v16.13.1/bin/node /Users/aaron.thompson/.nvm/versions/node/v16.13.1/bin/yarn add -D @types/react
+  /Users/aaron.thompson/.nvm/versions/node/v16.13.1/bin/node /Users/aaron.thompson/.nvm/versions/node/v16.13.1/bin/yarn add react-native-safe-area-context
 
 PATH: 
-  /Users/aaron.thompson/.nvm/versions/node/v16.13.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/aaron.thompson/Library/Android/sdk/emulator:/Users/aaron.thompson/Library/Android/sdk/tools:/Users/aaron.thompson/Library/Android/sdk/tools/bin:/Users/aaron.thompson/Library/Android/sdk/platform-tools:/opt/apache-maven/bin:/Applications/Postgres.app/Contents/Versions/14/bin
+  /Users/aaron.thompson/.nvm/versions/node/v16.13.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/aaron.thompson/.nvm/versions/node/v16.13.1/bin:/Users/aaron.thompson/Library/Android/sdk/emulator:/Users/aaron.thompson/Library/Android/sdk/tools:/Users/aaron.thompson/Library/Android/sdk/tools/bin:/Users/aaron.thompson/Library/Android/sdk/platform-tools:/opt/apache-maven/bin:/Applications/Postgres.app/Contents/Versions/14/bin:/Users/aaron.thompson/Library/Android/sdk/emulator:/Users/aaron.thompson/Library/Android/sdk/tools:/Users/aaron.thompson/Library/Android/sdk/tools/bin:/Users/aaron.thompson/Library/Android/sdk/platform-tools:/opt/apache-maven/bin:/Applications/Postgres.app/Contents/Versions/14/bin
 
 Yarn version: 
   1.22.17
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://zilch-047020849085.d.codeartifact.eu-west-1.amazonaws.com/npm/internal-shared/@types%2freact: Unauthenticated: request used expired credentials. Please renew your credentials.
+  Error: https://zilch-047020849085.d.codeartifact.eu-west-1.amazonaws.com/npm/internal-shared/react-native-safe-area-context: Unauthenticated: request did not include an Authorization header. Please provide your credentials.
       at Request.params.callback [as _callback] (/Users/aaron.thompson/.nvm/versions/node/v16.13.1/lib/node_modules/yarn/lib/cli.js:67029:18)
       at Request.self.callback (/Users/aaron.thompson/.nvm/versions/node/v16.13.1/lib/node_modules/yarn/lib/cli.js:140883:22)
       at Request.emit (node:events:390:28)
@@ -2184,7 +2184,7 @@ Lockfile:
   
   "@types/react@~17.0.21":
     version "17.0.45"
-    resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.45.tgz#9b3d5b661fd26365fefef0e766a1c6c30ccf7b3f"
+    resolved "https://zilch-047020849085.d.codeartifact.eu-west-1.amazonaws.com:443/npm/internal-shared/@types/react/-/react-17.0.45.tgz#9b3d5b661fd26365fefef0e766a1c6c30ccf7b3f"
     integrity sha512-YfhQ22Lah2e3CHPsb93tRwIGNiSwkuz1/blk4e6QrWS0jQzCSNbGLtOEYhPg02W0yGTTmpajp7dCTbBAMN3qsg==
     dependencies:
       "@types/prop-types" "*"
