@@ -1,18 +1,10 @@
-import { StyleSheet, View } from "react-native";
 import Text from "../atoms/text";
+import { Screen } from "../components/screen/screen";
 
 export default function TabOneScreen() {
   return (
-    <View style={styles.container}>
+    <Screen>
       <Text variant="headline">Spotter</Text>
-    </View>
+    </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

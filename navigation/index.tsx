@@ -26,11 +26,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="Root"
-        component={BottomTabNavigator}
-        options={{ headerShown: false }}
-      />
+      <Stack.Screen name="Root" component={BottomTabNavigator} />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
@@ -47,11 +43,7 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 function BottomTabNavigator() {
   return (
     <BottomTab.Navigator initialRouteName="TabOne">
-      <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={{ headerShown: false }}
-      />
+      <BottomTab.Screen name="TabOne" component={TabOneScreen} />
     </BottomTab.Navigator>
   );
 }
