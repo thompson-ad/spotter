@@ -14,3 +14,7 @@ export interface Progression {
   reps: number;
   sets: number;
 }
+
+export interface MovementHistory extends Movement {
+  progressions: Progression[];
+}
