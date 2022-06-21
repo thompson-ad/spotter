@@ -4,7 +4,7 @@ export enum WeightUnit {
 }
 
 export interface Movement {
-  name: string;
+  movementName: string;
 }
 
 export interface Progression {

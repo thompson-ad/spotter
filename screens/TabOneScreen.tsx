@@ -1,21 +1,40 @@
 import * as React from "react";
 import { FlatList, StyleSheet, TextInput } from "react-native";
+import { useQuery } from "urql";
 import Box from "../atoms/box";
 import Icon from "../atoms/Icon";
 import Text from "../atoms/text";
 import { Screen } from "../components/screen/Screen";
-import { movementHistory } from "../fixtures";
 import { MovementHistory } from "../models";
 import { palette } from "../theme";
 
+const MovementHistoryQuery = `
+  query {
+    movementHistory {
+      id
+      movementName
+      progressions {
+        weight
+      }
+    }
+  }
+`;
+
 export default function TabOneScreen() {
+  // Use Kadi Kraman news-flash example to flesh out this component
+  const [{ data, error, fetching }, refreshMovementHisotry] = useQuery({
+    query: MovementHistoryQuery,
+  });
+
   const [searchTerm, setSearchTerm] = React.useState("");
   const [filteredMovements, setFilteredMovements] = React.useState<
     MovementHistory[]
   >([]);
   const handleOnSearchTermChange = (term: string) => {
     setSearchTerm(term);
-    const matches = movementHistory.filter((d) => d.name.includes(searchTerm));
+    const matches = data.filter((d: MovementHistory) =>
+      d.movementName.includes(searchTerm)
+    );
     setFilteredMovements(matches);
   };
 
@@ -28,6 +47,11 @@ export default function TabOneScreen() {
   // TODO
   // finalise text input design
   // finalise movement information card design (maybe we have more than one)
+
+  // Idea for animation experimentation
+  // Using Reanimated
+  // First pull in the data to the flatlist
+  // make the flatlist a Reanimated componenet and see if you can apply a transition to items loading in
 
   const renderItem = ({ item }) => <Text>{JSON.stringify(item)}</Text>;
   return (
@@ -48,9 +72,9 @@ export default function TabOneScreen() {
       </Box>
       {/* styled flatlist to show filtered movements */}
       <FlatList
-        data={filteredMovements}
+        data={data?.movementHistory}
+        keyExtractor={(item) => item.id}
         renderItem={renderItem}
-        keyExtractor={(item) => item.name}
       />
     </Screen>
   );
