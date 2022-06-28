@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FlatList, StyleSheet, TextInput } from "react-native";
+import { FlatList, StyleSheet, TextInput, View } from "react-native";
 import { useQuery } from "urql";
 import Box from "../atoms/box";
 import Icon from "../atoms/Icon";
@@ -32,9 +32,9 @@ export default function TabOneScreen() {
   >([]);
   const handleOnSearchTermChange = (term: string) => {
     setSearchTerm(term);
-    const matches = data.filter((d: MovementHistory) =>
-      d.movementName.includes(searchTerm)
-    );
+    const matches = data
+      ? data.filter((d: MovementHistory) => d.movementName.includes(searchTerm))
+      : [];
     setFilteredMovements(matches);
   };
 
@@ -47,13 +47,23 @@ export default function TabOneScreen() {
   // TODO
   // finalise text input design
   // finalise movement information card design (maybe we have more than one)
+  // Note - I don't want the card to change size as you are searching but I want them to change once I know the user has stopped search
+  // small delay and then they expand either on press or automatically
 
   // Idea for animation experimentation
   // Using Reanimated
   // First pull in the data to the flatlist
   // make the flatlist a Reanimated componenet and see if you can apply a transition to items loading in
 
-  const renderItem = ({ item }) => <Text>{JSON.stringify(item)}</Text>;
+  // How can we type the queries properly from GraphQL? see Frontend Masters or Kadi Kraman
+  const renderItem = ({ item }: { item: MovementHistory }) => {
+    return (
+      <Box style={styles.movementCard}>
+        <Text style={styles.movementName}>{item.movementName}</Text>
+      </Box>
+    );
+  };
+
   return (
     <Screen>
       <Text style={styles.logo} variant="headline">
@@ -67,7 +77,7 @@ export default function TabOneScreen() {
           style={styles.movementSearch}
           placeholder="Search for movement history..."
           value={searchTerm}
-          placeholderTextColor={palette.paper300}
+          placeholderTextColor={palette.black}
         />
       </Box>
       {/* styled flatlist to show filtered movements */}
@@ -85,9 +95,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   movementSearch: {
-    backgroundColor: palette.platinum,
+    backgroundColor: palette.orangeWeb,
     padding: 12,
     borderRadius: 24,
     fontFamily: "overpass-regular",
   },
+  movementCard: {
+    backgroundColor: palette.platinum,
+    padding: 12,
+  },
+  movementName: {},
 });

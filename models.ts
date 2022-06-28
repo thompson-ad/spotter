@@ -16,5 +16,6 @@ export interface Progression {
 }
 
 export interface MovementHistory extends Movement {
+  id: string;
   progressions: Progression[];
 }
